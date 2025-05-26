@@ -1,0 +1,281 @@
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0f4ff, #d2e0ff);
+    margin: 0;
+    padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://images.pexels.com/photos/31096662/pexels-photo-31096662/free-photo-of-cricketer-practicing-batting-in-sports-gear.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center fixed;
+    background-size: cover; /* Ensures the image covers the entire body */
+    margin: 0;
+    padding: 0;
+
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login__content {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.login__content:hover {
+    transform: scale(1.01);
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.login__title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.login__description {
+    text-align: center;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.login__inputs {
+    display: grid;
+    gap: 20px;
+}
+
+.login__label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #003366;
+}
+
+.login__input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ccd9ff;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.login__input:focus {
+    outline: none;
+    border-color: #0044cc;
+    box-shadow: 0 0 5px rgba(0, 68, 204, 0.3);
+    background-color: #f5faff;
+}
+
+.login__button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #0044cc, #0080ff);
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login__button:hover {
+    background: linear-gradient(135deg, #003399, #0066cc);
+}
+
+@media (max-width: 768px) {
+    .login__inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .login__form {
+        padding: 20px;
+    }
+}
+
+</style>
+
+<div class="container">
+	<div class="login__content">
+
+		<form action="{% url 'Deploy_9' %}"  method='POST' class="login__form">
+            {% csrf_token %}
+			<div>
+				<h1 class="login__title">
+					<span style="color: rgb(0, 9, 128);">Players Performence</span>  MODEL
+				</h1>
+				<p class="login__description">
+				
+				</p>
+			</div>
+
+			<div>
+				<div class="login__inputs">
+					
+					<div>
+						<label for="country" class="login__label">Country</label>
+						<select name="Country" id="country" class="login__input" required>
+							<option value="" disabled selected>Select your Country</option>
+							<option value="6">Scotland</option>
+							<option value="1">Australia</option>
+							<option value="3">England</option>
+							<option value="4">India</option>
+							<option value="5">New Zealand</option>
+							<option value="9">West Indies</option>
+							<option value="7">South Africa</option>
+							<option value="8">Sri Lanka</option>
+							<option value="2">Bangladesh</option>
+							<option value="0">Afghanistan</option>
+						</select>
+					</div>
+
+					<div>
+						<label for="CapStatus" class="login__label">CapStatus</label>
+						<select name="CapStatus" id="CapStatus" class="login__input" required>
+							<option value="" disabled selected>Select your CapStatus</option>
+							<option value="0">Associate</option>
+							<option value="1">Capped</option>
+							<option value="2">Uncapped</option>
+							
+						</select>
+					</div>
+                    <div>
+						<label for="" class="login__label">Innings</label>
+                        <input type="text" placeholder="Enter your Innings"  name='Innings' required class="login__input">
+
+
+					</div>
+                    <div>
+						<label for="" class="login__label">Runs</label>
+						<input type="number" placeholder="Enter your Runs"  name='Runs' required class="login__input">
+					</div>
+
+					<div>
+						<label for="" class="login__label">Balls</label>
+						<input type="text" placeholder="Enter your Balls"  name='Balls' required class="login__input">
+                        
+                    </div>
+                    <div>
+						<label for="" class="login__label">Average</label>
+                        <input type="text" placeholder="Enter your Average"  name='Average' required class="login__input">
+
+
+					</div><div>
+						<label for="" class="login__label">SR</label>
+						<input type="number" placeholder="Enter SR"  name='SR' required class="login__input">
+					</div>
+
+					<div>
+						<label for="" class="login__label">Fifites</label>
+						<input type="text" placeholder="Enter your Fifites"  name='Fifites' required class="login__input">
+                        
+                    </div>
+                    <div>
+						<label for="" class="login__label">hundreds</label>
+                        <input type="text" placeholder="Enter your hundreds"  name='hundreds' required class="login__input">
+
+
+					</div><div>
+						<label for="" class="login__label">Fours</label>
+						<input type="number" placeholder="Enter Fours"  name='Fours' required class="login__input">
+					</div>
+
+					<div>
+						<label for="" class="login__label">Sixes</label>
+						<input type="text" placeholder="Enter your Sixes"  name='Sixes' required class="login__input">
+                        
+                    </div>
+				    
+						</div><div>
+						<label for="" class="login__label">Notout</label>
+						<input type="number" placeholder="Enter Notout"  name='Notout' required class="login__input">
+					</div>
+
+					<div>
+							<label for="" class="login__label">PlayerRole</label>
+								<select name="PlayerRole" id="PlayerRole" class="login__input" required>
+									<option value="" disabled selected>Select your PlayerRole</option>
+									<option value="0">Top-Order-Batsman</option>
+									<option value="1">Middle-Order-Batsman</option>
+									<option value="2">Finisher-Batsman</option>
+					
+				                </select>
+			        </div>
+                    
+                    
+				
+			</div>
+
+			<div>
+				<div class="login__buttons">
+					<button class="login__button">submit</button>
+					
+				</div>
+
+			
+			</div>
+		</form>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    /*=============== SHOW HIDDEN - PASSWORD ===============*/
+const showHiddenPass = (inputPass, inputIcon) => {
+	const input = document.getElementById(inputPass),
+		iconEye = document.getElementById(inputIcon);
+
+	iconEye.addEventListener("click", () => {
+		// Change password to text
+		if (input.type === "password") {
+			// Switch to text
+			input.type = "text";
+
+			// Add icon
+			iconEye.classList.add("ri-eye-line");
+			// Remove icon
+			iconEye.classList.remove("ri-eye-off-line");
+		} else {
+			// Change to password
+			input.type = "password";
+
+			// Remove icon
+			iconEye.classList.remove("ri-eye-line");
+			// Add icon
+			iconEye.classList.add("ri-eye-off-line");
+		}
+	});
+};
+
+showHiddenPass("input-pass", "input-icon");
+
+</script>

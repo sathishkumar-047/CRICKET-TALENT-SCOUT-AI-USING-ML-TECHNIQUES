@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-ttZ5UjOr8Nen5InC2C1QFkVskwMJjsn7x++hHl8I7j2vv6J4OSiHbR7Oo+d12OV3KBgNyQU4rOcA1j6FZI3HDg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+/* Background and Body Styling */
+body {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://images.pexels.com/photos/4747325/pexels-photo-4747325.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 30px 15px;
+    color: #f8f9fa;
+}
+
+/* Container Styling with Glassmorphism */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Section Titles */
+.section-title {
+    color: #00e676;
+    font-size: 2.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+/* Headings */
+h4 {
+    color: #ffffff;
+    margin-top: 20px;
+    font-size: 1.5em;
+    border-left: 4px solid #00e676;
+    padding-left: 12px;
+    font-weight: 600;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+ul li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    position: relative;
+    font-size: 1.1em;
+    transition: background 0.3s ease;
+}
+
+ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+ul li::before {
+    content: "✅";
+    position: absolute;
+    left: 15px;
+    color: #00e676;
+    font-size: 1.2em;
+    top: 12px;
+}
+
+ul li strong {
+    color: #fff176;
+}
+
+/* Center Text Block */
+.centered-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+/* Highlighted Text Colors */
+.text-success {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.text-warning {
+    color: #ffca28;
+    font-weight: bold;
+}
+
+.text-danger {
+    color: #ef5350;
+    font-weight: bold;
+}
+
+/* Icons Styling */
+.bi {
+    margin-right: 10px;
+    color: #81d4fa;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+table thead {
+    background-color: rgba(0, 230, 118, 0.2);
+}
+ul li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 20px 12px 45px; /* Increased left padding for space */
+    border-radius: 10px;
+    margin-bottom: 12px;
+    position: relative;
+    font-size: 1.1em;
+    transition: background 0.3s ease;
+    color: #f8f9fa;
+}
+
+ul li::before {
+    content: "✅";
+    position: absolute;
+    left: 15px;  /* Adjusts tick icon to the left */
+    top: 12px;
+    font-size: 1.2em;
+    color: #00e676;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h4 {
+        font-size: 1.2em;
+    }
+
+    .section-title {
+        font-size: 1.7em;
+    }
+
+    ul li {
+        font-size: 1em;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">players Information</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+{% if prediction_text1 == 'unsold' %}
+    <!-- ✅ Unsold Block (Your provided content goes here) -->
+    <div class="container" id="cricket-high-performance">
+         <div class="info-section">
+            <h2 class="section-title">sorry</h2>
+            <center>
+                <h4>The player has been <span class="text-success">unsold</span>!</h4>
+                <p class="text-primary">Better luck next time.</p>
+            </center>
+        <!-- ...All your training and performance tips here... -->
+    </div>
+
+{% elif prediction_text1 == 'sold' %}
+    <!-- ✅ Sold Block (Display sold-related info here) -->
+    <div class="container" id="player-sold-info">
+        <div class="info-section">
+            <h2 class="section-title">Congratulations!</h2>
+            <center>
+                <h4>The player has been <span class="text-success">SOLD</span>!</h4>
+                <p class="text-primary">Get ready for a new journey with your franchise.</p>
+            </center>
+
+            <hr>
+
+            <h4><i class="bi bi-cash-coin"></i> Auction Summary</h4>
+            <ul>
+                <li><strong>Role:</strong> {{ Specialism }}</li>
+                <li><strong>Next Steps:</strong> Reporting date, training camp, etc.</li>
+            </ul>
+
+            <h4><i class="bi bi-graph-up"></i> How to Prepare for the Season</h4>
+            <ul>
+                <li>Study franchise playstyle and coach expectations.</li>
+                <li>Attend pre-season fitness programs.</li>
+                <li>Build rapport with teammates and support staff.</li>
+                <li>Stay focused and injury-free.</li>
+            </ul>
+        </div>
+    </div>
+{% endif %}
+
+
+    <!-- Add a Contact Section -->
+    
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
+        

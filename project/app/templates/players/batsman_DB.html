@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #af4c4c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .btn-custom {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #7a0000;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 5px #666;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #1d6800;
+        }
+        .btn-custom:active {
+            background-color: #555;
+            box-shadow: 0 3px #666;
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+        <h2>auction List Database</h2>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                       
+                        <th>Specialism</th>
+                        <th>Innings</th>
+                        <th>Avg	</th>
+                        <th>SR</th>
+                        <th>Fifties</th>
+                        <th>Hundreds</th>
+                        <th>Fours</th>
+                        <th>Sixes</th>
+                        <th>Runs</th>
+                        <th>Balls</th>
+                        <th>NotOuts</th>
+                        <th>Output</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for patient in patients %}
+                    <tr>
+                        <td>{{ patient.Specialism }}</td>
+                        <td>{{ patient.Innings }}</td>
+                        <td>{{ patient.Avg }}</td>
+                        <td>{{ patient.SR }}</td>
+                        <td>{{ patient.Fifties }}</td>
+                        <td>{{ patient.Hundreds }}</td>
+                        <td>{{ patient.Fours }}</td>
+                        <td>{{ patient.Sixes }}</td>
+                        <td>{{ patient.Runs }}</td>
+                        <td>{{ patient.Balls }}</td>
+                        <td>{{ patient.NotOuts }}</td>
+                        <td>{{ patient.Class }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>Sports Performance EDA</title>
+</head>
+<body>
+    <h1>Sports Performance Dashboard</h1>
+
+    <form method="get">
+        <label for="firstname">Select FirstName:</label>
+        <select name="firstname" id="firstname">
+            {% for name in firstnames %}
+                <option value="{{ name }}" {% if name == selected_firstname %}selected{% endif %}>{{ name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="specialism">Select Specialism:</label>
+        <select name="specialism" id="specialism">
+            {% for item in specialisms %}
+                <option value="{{ item }}" {% if item == selected_specialism %}selected{% endif %}>{{ item }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="reserve">Select Reserve:</label>
+        <select name="reserve" id="reserve">
+            {% for year in reserves %}
+                <option value="{{ year }}" {% if year == selected_reserve %}selected{% endif %}>{{ year }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Show Performance</button>
+    </form>
+
+    {% if chart %}
+        <h2>Performance Chart</h2>
+        <img src="data:image/png;base64,{{ chart }}" alt="Performance Chart">
+    {% elif selected_firstname and selected_specialism and selected_reserve %}
+        <p>No data available for selected criteria.</p>
+    {% endif %}
+
+</body>
+</html> {% endcomment %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sports Performance Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Open Sans', sans-serif;
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: bold;
+            color: #343a40;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            background: #fff;
+        }
+        label {
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        select {
+            margin-bottom: 10px;
+        }
+        .selected-value {
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .chart-section {
+            margin-top: 40px;
+        }
+        img {
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>⚽ Sports Performance Dashboard</h1>
+
+    <div class="container">
+        <div class="card">
+            <form method="get">
+                <div class="mb-3">
+                    <label for="firstname">Select First Name:</label>
+                    <select name="firstname" id="firstname" class="form-select">
+                        {% for name in firstnames %}
+                            <option value="{{ name }}" {% if name == selected_firstname %}selected{% endif %}>{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="selected-value">Selected: <span id="firstnameValue"></span></div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="specialism">Select Specialism:</label>
+                    <select name="specialism" id="specialism" class="form-select">
+                        {% for item in specialisms %}
+                            <option value="{{ item }}" {% if item == selected_specialism %}selected{% endif %}>{{ item }}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="selected-value">Selected: <span id="specialismValue"></span></div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="reserve">Select Reserve:</label>
+                    <select name="reserve" id="reserve" class="form-select">
+                        {% for year in reserves %}
+                            <option value="{{ year }}" {% if year == selected_reserve %}selected{% endif %}>{{ year }}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="selected-value">Selected: <span id="reserveValue"></span></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Show Performance</button>
+            </form>
+        </div>
+
+        <div class="chart-section text-center">
+            {% if chart %}
+                <h2 class="mt-5">📊 Performance Chart</h2>
+                <img src="data:image/png;base64,{{ chart }}" alt="Performance Chart" class="img-fluid mt-3">
+            {% elif selected_firstname and selected_specialism and selected_reserve %}
+                <p class="text-danger mt-5">No data available for selected criteria.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to show selected values in real-time
+        document.getElementById("firstname").addEventListener("change", function() {
+            document.getElementById("firstnameValue").textContent = this.value;
+        });
+        document.getElementById("specialism").addEventListener("change", function() {
+            document.getElementById("specialismValue").textContent = this.value;
+        });
+        document.getElementById("reserve").addEventListener("change", function() {
+            document.getElementById("reserveValue").textContent = this.value;
+        });
+
+        // On load: show initial selected values
+        document.getElementById("firstnameValue").textContent = document.getElementById("firstname").value;
+        document.getElementById("specialismValue").textContent = document.getElementById("specialism").value;
+        document.getElementById("reserveValue").textContent = document.getElementById("reserve").value;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-ttZ5UjOr8Nen5InC2C1QFkVskwMJjsn7x++hHl8I7j2vv6J4OSiHbR7Oo+d12OV3KBgNyQU4rOcA1j6FZI3HDg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+/* Background and Body Styling */
+body {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://images.pexels.com/photos/4747325/pexels-photo-4747325.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 30px 15px;
+    color: #f8f9fa;
+}
+
+/* Container Styling with Glassmorphism */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Section Titles */
+.section-title {
+    color: #00e676;
+    font-size: 2.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+/* Headings */
+h4 {
+    color: #ffffff;
+    margin-top: 20px;
+    font-size: 1.5em;
+    border-left: 4px solid #00e676;
+    padding-left: 12px;
+    font-weight: 600;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+ul li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    position: relative;
+    font-size: 1.1em;
+    transition: background 0.3s ease;
+}
+
+ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+ul li::before {
+    content: "✅";
+    position: absolute;
+    left: 15px;
+    color: #00e676;
+    font-size: 1.2em;
+    top: 12px;
+}
+
+ul li strong {
+    color: #fff176;
+}
+
+/* Center Text Block */
+.centered-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+/* Highlighted Text Colors */
+.text-success {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.text-warning {
+    color: #ffca28;
+    font-weight: bold;
+}
+
+.text-danger {
+    color: #ef5350;
+    font-weight: bold;
+}
+
+/* Icons Styling */
+.bi {
+    margin-right: 10px;
+    color: #81d4fa;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+table thead {
+    background-color: rgba(0, 230, 118, 0.2);
+}
+ul li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 20px 12px 45px; /* Increased left padding for space */
+    border-radius: 10px;
+    margin-bottom: 12px;
+    position: relative;
+    font-size: 1.1em;
+    transition: background 0.3s ease;
+    color: #f8f9fa;
+}
+
+ul li::before {
+    content: "✅";
+    position: absolute;
+    left: 15px;  /* Adjusts tick icon to the left */
+    top: 12px;
+    font-size: 1.2em;
+    color: #00e676;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h4 {
+        font-size: 1.2em;
+    }
+
+    .section-title {
+        font-size: 1.7em;
+    }
+
+    ul li {
+        font-size: 1em;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">players Information</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        {% comment %} <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'Home_4' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'patient_list' %}">Database</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'report' %}">Report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'matrix' %}">Matrix report</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Logout' %}">Logout</a>
+                </li>
+                
+        </div> {% endcomment %}
+    </nav>
+{% if prediction_text == 'High Perfomence' %}
+<div class="container" id="cricket-high-performance">
+    <div class="info-section">
+
+        <h2 class="section-title">High Performance – Cricket Player</h2>
+        <center>
+            <h4>EXCEL IN CRICKET WITH STRATEGIC TRAINING AND ADVANCED INSIGHTS</h4>
+            <p class="text-success">Enhance Technique, Fitness, Mental Strength, and Match Readiness</p>
+        </center>
+
+        <hr>
+
+        <h4><i class="bi bi-person-circle"></i> Core Pillars of Cricket Performance</h4>
+        <ul>
+            <li><strong>  Technical Skill:</strong> Mastery of batting, bowling, and fielding techniques.</li>
+            <li><strong>Physical Fitness:</strong> Focus on strength, agility, speed, and endurance.</li>
+            <li><strong>Game Intelligence:</strong> Tactical awareness and decision-making under pressure.</li>
+            <li><strong>Mental Conditioning:</strong> Concentration, confidence, and handling high-pressure moments.</li>
+        </ul>
+
+        <h4><i class="bi bi-bar-chart-line"></i> Advanced Metrics & Wearables</h4>
+        <ul>
+            <li><strong>Bat Speed Sensors (e.g. StanceBeam):</strong> Analyze swing, bat angles, and shot power.</li>
+            <li><strong>Bowling Load Monitoring:</strong> Track delivery volume and intensity using smart vests.</li>
+            <li><strong>GPS Trackers:</strong> Monitor sprinting distance and field coverage.</li>
+            <li><strong>Heart Rate & Recovery Trackers:</strong> Measure training stress and optimize recovery.</li>
+        </ul>
+
+        <h4><i class="bi bi-lightbulb"></i> Smart Training Strategies</h4>
+        <ul>
+            <li><strong>Progressive Skills Drills:</strong> Improve shot accuracy and consistency over time.</li>
+            <li><strong>Biomechanical Feedback:</strong> Use video analysis to refine body movement and technique.</li>
+            <li><strong>Cross-Training:</strong> Add swimming, yoga, or cycling for endurance and flexibility.</li>
+            <li><strong>Personalized Workout Plans:</strong> Focus on player roles (e.g. fast bowler vs spinner).</li>
+        </ul>
+
+        <h4><i class="bi bi-activity"></i> Mental Conditioning for Cricketers</h4>
+        <ul>
+            <li><strong>Visualization:</strong> Rehearse game scenarios to boost confidence and muscle memory.</li>
+            <li><strong>Mindfulness & Meditation:</strong> Build focus and reduce pre-match anxiety.</li>
+            <li><strong>Pre-Performance Routines:</strong> Use breathing or cue words to stay focused before delivery or shot.</li>
+        </ul>
+
+        <h4><i class="bi bi-pie-chart"></i> Sample High Performance Cricket Schedule</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Activity</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>8:00 AM</td>
+                    <td>Dynamic Warm-up & Stretching</td>
+                    <td>Injury Prevention</td>
+                </tr>
+                <tr>
+                    <td>8:30 AM</td>
+                    <td>Batting/Bowling Drills</td>
+                    <td>Skill Execution</td>
+                </tr>
+                <tr>
+                    <td>10:00 AM</td>
+                    <td>Strength & Conditioning</td>
+                    <td>Build Physical Capacity</td>
+                </tr>
+                <tr>
+                    <td>11:00 AM</td>
+                    <td>Video Review & Strategy</td>
+                    <td>Game Awareness</td>
+                </tr>
+                <tr>
+                    <td>11:30 AM</td>
+                    <td>Cool-down & Recovery Nutrition</td>
+                    <td>Recovery Optimization</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4><i class="bi bi-shield-check"></i> Injury Prevention Tips</h4>
+        <ul>
+            <li><strong>Warm Up Properly:</strong> Always activate muscles before practice or matches.</li>
+            <li><strong>Hydration:</strong> Dehydration reduces performance and increases risk of cramps.</li>
+            <li><strong>Listen to Your Body:</strong> Rest if signs of fatigue, pain, or overuse appear.</li>
+            <li><strong>Strengthen Core & Shoulders:</strong> Especially for bowlers to reduce joint stress.</li>
+        </ul>
+
+        <h4><i class="bi bi-star"></i> Peak Performance Habits</h4>
+        <ul>
+            <li><strong>8 Hours of Quality Sleep:</strong> Crucial for reaction time and muscle recovery.</li>
+            <li><strong>Match Simulation Practice:</strong> Simulate pressure situations to prepare mentally.</li>
+            <li><strong>Track Metrics Weekly:</strong> Use logs and apps to monitor improvement.</li>
+            <li><strong>Maintain Balanced Diet:</strong> Include proteins, carbs, and recovery-focused nutrients.</li>
+        </ul>
+
+    </div>
+</div>
+
+
+{% elif prediction_text == 'Average Perfomence' %}
+<div class="container" id="cricket-average-performance">
+    <div class="info-section">
+
+        <h2 class="section-title">Average Performance – Cricket Player</h2>
+        <center>
+            <h4>BUILD CONSISTENCY AND UNLOCK YOUR POTENTIAL</h4>
+            <p class="text-warning">You're on the right track — now focus on sharpening skills and refining strategy.</p>
+        </center>
+
+        <hr>
+
+        <h4><i class="bi bi-person-lines-fill"></i> What Average Performance Means</h4>
+        <p>You’re showing good signs of progress, but consistency, focus, and specific skill improvements are key to breaking into the next level. Addressing gaps in training, technique, or mindset can boost your performance from average to elite.</p>
+
+        <h4><i class="bi bi-tools"></i> Areas for Improvement</h4>
+        <ul>
+            <li><strong>Shot Selection:</strong> Avoid risky strokes by understanding game situations better.</li>
+            <li><strong>Bowling Accuracy:</strong> Work on delivering consistent line and length.</li>
+            <li><strong>Fielding Agility:</strong> Increase reaction speed and footwork to save more runs.</li>
+            <li><strong>Match Fitness:</strong> Improve conditioning to avoid fatigue during long innings or spells.</li>
+        </ul>
+
+        <h4><i class="bi bi-lightning"></i> Training Tips to Elevate Performance</h4>
+        <ul>
+            <li><strong>Focused Nets Sessions:</strong> Set goals (e.g., 20 balls, no loose shots).</li>
+            <li><strong>Video Feedback:</strong> Record your technique and spot flaws (e.g., foot movement, head position).</li>
+            <li><strong>Strength Workouts:</strong> Build explosive power for sprinting between wickets and bowling pace.</li>
+            <li><strong>Simulated Pressure Drills:</strong> Rehearse last-over scenarios to build match temperament.</li>
+        </ul>
+
+        <h4><i class="bi bi-journal-check"></i> Match Review Habits</h4>
+        <ul>
+            <li><strong>Post-Match Reflection:</strong> Note what went well and what didn’t after every match.</li>
+            <li><strong>Performance Logs:</strong> Track runs, wickets, catches, and effort points to spot patterns.</li>
+            <li><strong>Coach Feedback:</strong> Regularly consult with your coach for targeted guidance.</li>
+        </ul>
+
+        <h4><i class="bi bi-brightness-high"></i> Focus Areas for Batters & Bowlers</h4>
+        <p><strong>For Batters:</strong></p>
+        <ul>
+            <li>Refine your timing — use soft hands and middle the ball more often.</li>
+            <li>Face different bowling types (pace, spin, swing) in nets to become adaptable.</li>
+        </ul>
+        <p><strong>For Bowlers:</strong></p>
+        <ul>
+            <li>Practice bowling to a field — visualize and control the run flow.</li>
+            <li>Increase pace or spin variation to surprise the batter and gain control.</li>
+        </ul>
+
+        <h4><i class="bi bi-heart-pulse"></i> Mid-Level Fitness Goals</h4>
+        <ul>
+            <li><strong>Run 2km under 9 minutes:</strong> Builds match stamina.</li>
+            <li><strong>Core & Shoulder Strength:</strong> Reduce injury risk, especially for bowlers.</li>
+            <li><strong>Mobility Work:</strong> Daily stretching improves flexibility and range of motion.</li>
+        </ul>
+
+        <h4><i class="bi bi-graph-up"></i> From Average to High Performance</h4>
+        <ul>
+            <li><strong>Train with Purpose:</strong> Every session should have an intention and measurable outcome.</li>
+            <li><strong>Review and Adjust:</strong> Don’t repeat old mistakes. Learn and evolve every week.</li>
+            <li><strong>Surround Yourself with Mentors:</strong> A good coach or senior player can accelerate growth.</li>
+            <li><strong>Believe & Commit:</strong> The mental shift from “trying” to “owning your role” is key.</li>
+        </ul>
+
+    </div>
+</div>
+
+
+
+ 
+{% elif prediction_text == 'Low Perfomence' %}
+<div class="container" id="cricket-low-performance">
+    <div class="info-section">
+
+        <h2 class="section-title text-danger">Low Performance – Cricket Player</h2>
+        <center>
+            <h4>DON’T BE DISCOURAGED — EVERY CHAMPION STARTED SOMEWHERE</h4>
+            <p class="text-danger">Let’s build your foundation step by step. Focus on basics, effort, and mindset.</p>
+        </center>
+
+        <hr>
+
+        <h4><i class="bi bi-emoji-frown"></i> What Low Performance Indicates</h4>
+        <p>Your current performance level shows that some key cricket fundamentals need improvement. This is a great opportunity to reset, re-learn, and climb your way to better form — with consistency and dedication.</p>
+
+        <h4><i class="bi bi-tools"></i> Common Challenges at This Stage</h4>
+        <ul>
+            <li><strong>Inconsistent Batting:</strong> Difficulty judging deliveries or playing the right shot.</li>
+            <li><strong>Bowling Control Issues:</strong> Inability to bowl line and length consistently.</li>
+            <li><strong>Fitness Gaps:</strong> Lack of stamina, speed, or strength during matches.</li>
+            <li><strong>Mental Blocks:</strong> Low confidence, nerves during matches, or lack of focus.</li>
+        </ul>
+
+        <h4><i class="bi bi-lightbulb-fill"></i> Action Plan for Improvement</h4>
+        <ul>
+            <li><strong>Master the Basics:</strong> Practice grip, stance, footwork, and follow-through.</li>
+            <li><strong>Short Practice Sessions:</strong> Train for 30-45 mins daily — short and focused is better than nothing.</li>
+            <li><strong>Drill-Based Learning:</strong> Use cone drills, underarm feeds, and mirror techniques to build muscle memory.</li>
+            <li><strong>Video Your Practice:</strong> Watching your own technique reveals small flaws quickly.</li>
+        </ul>
+
+        <h4><i class="bi bi-person-hearts"></i> Building Confidence & Motivation</h4>
+        <ul>
+            <li><strong>Set Small Goals:</strong> E.g., "Play 10 balls with no mistake," or "Bowl 5 dot balls in a row."</li>
+            <li><strong>Track Every Win:</strong> Record improvements — even if small — to stay motivated.</li>
+            <li><strong>Positive Environment:</strong> Practice with encouraging players or a coach who supports growth.</li>
+            <li><strong>Believe in Progress:</strong> You are not behind — you’re building your base now.</li>
+        </ul>
+
+        <h4><i class="bi bi-shield-lock"></i> Foundational Fitness Goals</h4>
+        <ul>
+            <li><strong>Stretch Daily:</strong> Build flexibility and avoid early injuries.</li>
+            <li><strong>Basic Strength:</strong> Bodyweight squats, push-ups, and planks help build control.</li>
+            <li><strong>Walk/Jog:</strong> Develop cardiovascular stamina — key for longer matches.</li>
+        </ul>
+
+        <h4><i class="bi bi-check-circle-fill"></i> Weekly Focus Plan</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Focus Area</th>
+                    <th>Activity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td>Batting Basics</td>
+                    <td>Grip, stance, soft toss practice</td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td>Fitness</td>
+                    <td>Jogging + bodyweight strength</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>Bowling Drills</td>
+                    <td>Spot bowling (target practice)</td>
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                    <td>Fielding</td>
+                    <td>Catch and throw drills</td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>Game Awareness</td>
+                    <td>Watch matches, take notes</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4><i class="bi bi-rocket-takeoff-fill"></i> Final Encouragement</h4>
+        <ul>
+            <li><strong>Progress Over Perfection:</strong> Even 1% better every day compounds into greatness.</li>
+            <li><strong>Stay Patient:</strong> Real progress takes time. Don’t give up after short setbacks.</li>
+            <li><strong>Ask for Feedback:</strong> A coach or senior player can guide you faster than solo efforts.</li>
+            <li><strong>Have Fun:</strong> Enjoy learning the game — passion drives performance!</li>
+        </ul>
+
+    </div>
+</div>
+
+
+
+    {% endif %}
+    <!-- Add a Contact Section -->
+    
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
+        
